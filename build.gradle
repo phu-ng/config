@@ -1,6 +1,6 @@
 plugins {
 	id 'java'
-	id 'org.springframework.boot' version '3.3.1'
+	id 'org.springframework.boot' version '3.2.1'
 	id 'io.spring.dependency-management' version '1.1.5'
 }
 
@@ -26,12 +26,13 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
-//	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-//	implementation 'javax.persistence:persistence-api:1.0.2'
-//	implementation 'org.postgresql:postgresql'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'javax.persistence:persistence-api:1.0.2'
+	implementation 'org.postgresql:postgresql'
 
 	implementation 'org.springframework.cloud:spring-cloud-starter'
-//	implementation 'org.springframework.cloud:spring-cloud-starter-kubernetes-fabric8-all:3.1.2'
+	implementation 'io.awspring.cloud:spring-cloud-aws-autoconfigure'
+	implementation 'io.awspring.cloud:spring-cloud-aws-starter-parameter-store'
 
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
@@ -39,6 +40,7 @@ dependencies {
 dependencyManagement {
 	imports {
 		mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+		mavenBom "io.awspring.cloud:spring-cloud-aws-dependencies:3.2.0-M1"
 	}
 }
 
