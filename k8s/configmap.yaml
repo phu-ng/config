@@ -1,0 +1,23 @@
+---
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: config
+  namespace: config
+  labels:
+    spring.cloud.kubernetes.config.informer.enabled: "true"
+    spring.cloud.kubernetes.config: "true"
+data:
+  application.properties: |-
+    spring.application.name=config
+    spring.cloud.kubernetes.reload.enabled=true
+    management.endpoint.restart.enabled=true
+    management.endpoints.web.exposure.include=refresh
+    
+    spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+    spring.jpa.hibernate.ddl-auto=update
+    spring.datasource.url=jdbc:postgresql://localhost:5432/dev
+    spring.datasource.username=postgres
+    spring.datasource.password=admin
+
+    message=updated message
