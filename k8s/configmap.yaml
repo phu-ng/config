@@ -20,4 +20,4 @@ data:
     spring.datasource.username=postgres
     spring.datasource.password=admin
 
-    message=updated message
+    message=message from configmap
